@@ -1,17 +1,16 @@
-TITLE: Exercício 2 - Parte 1 - A 1
-DATA: FILE IS banco_med_mod.txt;
+TITLE: Exemplo mediação por path analysis - modelo 1
+DATA: FILE IS banco_mediacao.txt;
 VARIABLE: 
-NAMES ARE Dsp1-Dsp5 AA1-AA5 HS1-Hs5 SS1-SS5;
-USEVARIABLE ARE Dsp HS;
+NAMES ARE Adapt SatTrab Burnout TrabDec; 
+USEVARIABLES ARE Adapt SatTrab Burnout;
+MISSING ARE ALL (999);
 
-DEFINE:
-Dsp = MEAN (Dsp1-Dsp5); 
-HS = MEAN (HS1-HS5); 
+Analysis:
+ESTIMATOR = MLR;
 
-analysis: bootstrap=500;
+MODEL:
+!Regressão
+SatTrab ON Adapt;
+Burnout ON Adapt;
 
-model: 
-!regressão
-Dsp ON HS;
-
-output: standardized;
+OUTPUT: standardized (STDYX); MODINDICES (ALL);

@@ -1,58 +1,62 @@
 VERSION 1.1.0
 INPUT
 TITLE:
- Exercício 2 - Parte 1 - A 2
+ Exemplo mediação por path analysis - modelo 2
 DATA:
- FILE IS banco_med_mod.txt;
+ FILE IS banco_mediacao.txt;
 VARIABLE:
-NAMES ARE Dsp1-Dsp5 AA1-AA5 HS1-Hs5 SS1-SS5;
-USEVARIABLE ARE Dsp HS AA;
-DEFINE:
-Dsp = MEAN (Dsp1-Dsp5);
-HS = MEAN (HS1-HS5);
-AA = MEAN (AA1-AA5);
+NAMES ARE Adapt SatTrab Burnout TrabDec;
+USEVARIABLES ARE Adapt SatTrab Burnout TrabDec;
+MISSING ARE ALL (999);
 ANALYSIS:
- bootstrap=500;
+ESTIMATOR = MLR;
 OUTPUT:
- standardized;
+ standardized (STDYX); MODINDICES (ALL);
 MODEL:
-Dsp ON HS;
-Dsp ON AA;
-AA ON HS;
+SatTrab ON Adapt TrabDec;
+Burnout ON Adapt TrabDec;
+TrabDec ON Adapt;
 INPUT_END
 2
-1
-1
-1
-ML
+2
+0
+2
+MLR
 1
 GENERAL
 0
-2
+3
 0
 1
-dsp aa hs
+sattrab burnout trabdec adapt
 3
-2 1 0
+2 2 1 0
 0
 0
-1 1 hs dsp    0.012    0.023
-1 1 aa dsp    0.475    0.024
-1 1 hs aa    0.195    0.038
-4 1 dsp    0.455    0.020
-4 1 aa    0.758    0.039
-11 1 hs dsp    0.014
-11 1 aa dsp    0.530
-11 1 hs aa    0.207
-14 1 dsp    0.716
-14 1 aa    0.957
-21 1 hs dsp    0.015
-21 1 aa dsp    0.530
-21 1 hs aa    0.219
-24 1 dsp    0.716
-24 1 aa    0.957
-31 1 hs dsp    0.012
-31 1 aa dsp    0.475
-31 1 hs aa    0.195
-34 1 dsp    0.455
-34 1 aa    0.758
+1 1 adapt sattrab    0.207    0.111
+1 1 trabdec sattrab    0.614    0.039
+1 1 adapt burnout   -0.375    0.066
+1 1 trabdec burnout   -0.321    0.026
+1 1 adapt trabdec    0.483    0.129
+2 1 burnout sattrab   -0.144    0.027
+4 1 sattrab    0.690    0.054
+4 1 burnout    0.243    0.018
+4 1 trabdec    1.223    0.086
+11 1 adapt sattrab    0.076    0.041
+11 1 trabdec sattrab    0.632    0.031
+11 1 adapt burnout   -0.233    0.041
+11 1 trabdec burnout   -0.560    0.035
+11 1 adapt trabdec    0.172    0.046
+12 1 burnout sattrab   -0.352    0.051
+14 1 sattrab    0.579    0.040
+14 1 burnout    0.587    0.038
+14 1 trabdec    0.970    0.016
+31 1 adapt sattrab    0.207    0.111
+31 1 trabdec sattrab    0.614    0.039
+31 1 adapt burnout   -0.375    0.066
+31 1 trabdec burnout   -0.321    0.026
+31 1 adapt trabdec    0.483    0.129
+32 1 burnout sattrab   -0.144    0.027
+34 1 sattrab    0.690    0.054
+34 1 burnout    0.243    0.018
+34 1 trabdec    1.223    0.086

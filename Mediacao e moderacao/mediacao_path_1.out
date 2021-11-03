@@ -1,0 +1,243 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+11/03/2021  10:46 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Exemplo mediação por path analysis - modelo 1
+  DATA: FILE IS banco_mediacao.txt;
+  VARIABLE:
+  NAMES ARE Adapt SatTrab Burnout TrabDec;
+  USEVARIABLES ARE Adapt SatTrab Burnout;
+  MISSING ARE ALL (999);
+
+  Analysis:
+  ESTIMATOR = MLR;
+
+  MODEL:
+  !Regressão
+  SatTrab ON Adapt;
+  Burnout ON Adapt;
+
+  OUTPUT: standardized (STDYX); MODINDICES (ALL);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Exemplo mediação por path analysis - modelo 1
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         360
+
+Number of dependent variables                                    2
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   SATTRAB     BURNOUT
+
+Observed independent variables
+   ADAPT
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  banco_mediacao.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              SATTRAB       BURNOUT       ADAPT
+              ________      ________      ________
+ SATTRAB        1.000
+ BURNOUT        1.000         1.000
+ ADAPT          1.000         1.000         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        7
+
+Loglikelihood
+
+          H0 Value                        -790.543
+          H0 Scaling Correction Factor      1.0234
+            for MLR
+          H1 Value                        -790.543
+          H1 Scaling Correction Factor      1.0234
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    1595.086
+          Bayesian (BIC)                  1622.289
+          Sample-Size Adjusted BIC        1600.081
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000*
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+          Scaling Correction Factor         1.0000
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.000
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            211.860
+          Degrees of Freedom                     3
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SATTRAB  ON
+    ADAPT              0.503      0.142      3.538      0.000
+
+ BURNOUT  ON
+    ADAPT             -0.530      0.077     -6.855      0.000
+
+ BURNOUT  WITH
+    SATTRAB           -0.385      0.047     -8.223      0.000
+
+ Intercepts
+    SATTRAB            2.389      0.566      4.219      0.000
+    BURNOUT            2.665      0.315      8.466      0.000
+
+ Residual Variances
+    SATTRAB            1.151      0.084     13.787      0.000
+    BURNOUT            0.370      0.032     11.702      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SATTRAB  ON
+    ADAPT              0.185      0.051      3.633      0.000
+
+ BURNOUT  ON
+    ADAPT             -0.330      0.046     -7.179      0.000
+
+ BURNOUT  WITH
+    SATTRAB           -0.591      0.038    -15.414      0.000
+
+ Intercepts
+    SATTRAB            2.188      0.551      3.973      0.000
+    BURNOUT            4.139      0.447      9.253      0.000
+
+ Residual Variances
+    SATTRAB            0.966      0.019     51.441      0.000
+    BURNOUT            0.891      0.030     29.434      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    SATTRAB            0.034      0.019      1.817      0.069
+    BURNOUT            0.109      0.030      3.589      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.115E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    g:\meu drive\github\afc_sem_med_mod\mediacao e moderacao\mediacao_path_1.dgm
+
+     Beginning Time:  10:46:11
+        Ending Time:  10:46:11
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
