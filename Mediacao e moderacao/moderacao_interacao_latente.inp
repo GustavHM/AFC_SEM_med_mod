@@ -1,0 +1,25 @@
+TITLE:	this is an example of a SEM with
+	continuous factor indicators and an
+	interaction between two latent variables 
+DATA:	FILE IS banco_moderacao.txt;
+VARIABLE:	NAMES ARE y1-y12;
+                usevariables y1-y9
+
+ANALYSIS:	TYPE = RANDOM;             !usar tipo randômico com algoritmo de integration;
+         	ALGORITHM = INTEGRATION;   !necessário para rodar moderação latente;
+
+MODEL:	f1 BY y1-y3;  ! f1 = VI  ;
+	    f2 BY y4-y6;  ! f2 = Vmoderadora ;
+	    f3 BY y7-y9;  ! f3 = VD   ;
+	    
+	
+	f3 ON f1 f2;     !modelar as relações diretas
+
+    ! estimar uma variável de interação latente
+	fatorInter | f1 XWITH f2;   ! "|" indica um parâmetro randômico, interação latente neste caso;
+                                ! "Xwith" cria a interação latente; equivalente a multiplicar variáveis observadas;
+
+
+	f3 ON fatorInter;
+  
+OUTPUT:	TECH1 TECH8;

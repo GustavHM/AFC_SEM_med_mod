@@ -1,0 +1,15 @@
+TITLE:	AFC UERJ
+DATA:	FILE IS banco_exemplo_cat2.txt;
+VARIABLE:	NAMES ARE id i1-i12;
+            usevariables i1-i5 i7-i12;
+            CATEGORICAL ARE ALL;
+
+
+
+MODEL:	f1 BY i1-i4;  
+	    f2 BY i5 i7 i8;  
+	    f3 BY i9-i12 i1;  
+	    
+  
+OUTPUT:	standardized (all); modindices (all);
+

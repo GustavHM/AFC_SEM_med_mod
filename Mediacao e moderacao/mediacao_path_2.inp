@@ -1,0 +1,22 @@
+TITLE: Exercício 2 - Parte 1 - A 2
+DATA: FILE IS banco_med_mod.txt;
+VARIABLE: 
+NAMES ARE Dsp1-Dsp5 AA1-AA5 HS1-Hs5 SS1-SS5;
+USEVARIABLE ARE Dsp HS AA;
+
+DEFINE:
+Dsp = MEAN (Dsp1-Dsp5); 
+HS = MEAN (HS1-HS5);
+AA = MEAN (AA1-AA5); 
+
+analysis: bootstrap=500;
+
+model: 
+!regressão
+Dsp ON HS;
+Dsp ON AA;
+AA ON HS;
+
+model indirect: Dsp ind HS;
+
+output: standardized;

@@ -1,0 +1,284 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+11/03/2021   9:14 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Exercício 2 - Parte 1 - A 2
+  DATA: FILE IS banco_med_mod.txt;
+  VARIABLE:
+  NAMES ARE Dsp1-Dsp5 AA1-AA5 HS1-Hs5 SS1-SS5;
+  USEVARIABLE ARE Dsp HS AA;
+
+  DEFINE:
+  Dsp = MEAN (Dsp1-Dsp5);
+  HS = MEAN (HS1-HS5);
+  AA = MEAN (AA1-AA5);
+
+  analysis: bootstrap=500;
+
+  model:
+  !regressão
+  Dsp ON HS;
+  Dsp ON AA;
+  AA ON HS;
+
+  model indirect: Dsp ind HS;
+
+  output: standardized;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Exercício 2 - Parte 1 - A 2
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1000
+
+Number of dependent variables                                    2
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   DSP         AA
+
+Observed independent variables
+   HS
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Number of bootstrap draws
+    Requested                                                  500
+    Completed                                                  500
+
+Input data file(s)
+  banco_med_mod.txt
+
+Input data format  FREE
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        7
+
+Loglikelihood
+
+          H0 Value                       -2305.038
+          H1 Value                       -2305.038
+
+Information Criteria
+
+          Akaike (AIC)                    4624.075
+          Bayesian (BIC)                  4658.429
+          Sample-Size Adjusted BIC        4636.197
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.000
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            378.407
+          Degrees of Freedom                     3
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ DSP      ON
+    HS                 0.012      0.023      0.526      0.599
+    AA                 0.475      0.024     20.175      0.000
+
+ AA       ON
+    HS                 0.195      0.038      5.114      0.000
+
+ Intercepts
+    DSP               -0.011      0.021     -0.511      0.609
+    AA                 0.012      0.028      0.451      0.652
+
+ Residual Variances
+    DSP                0.455      0.020     23.156      0.000
+    AA                 0.758      0.039     19.636      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+                      StdYX       StdY        Std
+                    Estimate   Estimate   Estimate
+
+ DSP      ON
+    HS                 0.014      0.015      0.012
+    AA                 0.530      0.530      0.475
+
+ AA       ON
+    HS                 0.207      0.219      0.195
+
+ Intercepts
+    DSP               -0.013     -0.013     -0.011
+    AA                 0.014      0.014      0.012
+
+ Residual Variances
+    DSP                0.716      0.716      0.455
+    AA                 0.957      0.957      0.758
+
+
+R-SQUARE
+
+    Observed
+    Variable        Estimate
+
+    DSP                0.284
+    AA                 0.043
+
+
+TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS
+
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Effects from HS to DSP
+
+  Total                0.104      0.030      3.491      0.000
+  Total indirect       0.092      0.018      5.138      0.000
+
+  Specific indirect
+
+    DSP
+    AA
+    HS                 0.092      0.018      5.138      0.000
+
+  Direct
+    DSP
+    HS                 0.012      0.023      0.526      0.599
+
+
+STANDARDIZED TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Effects from HS to DSP
+
+  Total                0.124      0.035      3.509      0.000
+  Total indirect       0.110      0.021      5.203      0.000
+
+  Specific indirect
+
+    DSP
+    AA
+    HS                 0.110      0.021      5.203      0.000
+
+  Direct
+    DSP
+    HS                 0.014      0.027      0.526      0.599
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Effects from HS to DSP
+
+  Total                0.131      0.037      3.491      0.000
+  Total indirect       0.116      0.023      5.138      0.000
+
+  Specific indirect
+
+    DSP
+    AA
+    HS                 0.116      0.023      5.138      0.000
+
+  Direct
+    DSP
+    HS                 0.015      0.028      0.526      0.599
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Effects from HS to DSP
+
+  Total                0.104      0.030      3.491      0.000
+  Total indirect       0.092      0.018      5.138      0.000
+
+  Specific indirect
+
+    DSP
+    AA
+    HS                 0.092      0.018      5.138      0.000
+
+  Direct
+    DSP
+    HS                 0.012      0.023      0.526      0.599
+
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\user\onedrive\2021_uerj\mediacao e moderacao\mediacao_path_2.dgm
+
+     Beginning Time:  09:14:44
+        Ending Time:  09:14:44
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

@@ -1,0 +1,24 @@
+TITLE:	this is an example of a SEM with
+	continuous factor indicators and an
+	interaction between two latent variables
+     
+DATA:	FILE IS banco_moderacao.txt;
+
+VARIABLE:	NAMES ARE y1-y12;
+            usevariables f3_des f2_est f1_int
+                        moderf12; 
+
+define: f3_des= mean(y1-y3);
+        f2_est= mean(y4-y6);
+        f1_int= mean(y7-y9);
+        
+        moderf12= f2_est * f1_int; ! cria uma variável nova de internação (para moderação)
+
+MODEL:
+    f3_des on f1_int f2_est moderf12; 
+		
+    !Y = B0 + B1VI + B2Mod + B3XM + E;
+
+
+  
+OUTPUT:	stdyx;
